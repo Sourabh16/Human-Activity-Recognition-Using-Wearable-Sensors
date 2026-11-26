@@ -1,0 +1,17 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cvpr}[2025/01/01 CVPR Style]
+\usepackage[margin=1in]{geometry}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setlength{\columnsep}{0.3125in}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}{-3.5ex \@plus -1ex \@minus -.2ex}{2.3ex \@plus .2ex}{\normalfont\Large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}{-3.25ex\@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont\large\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}{-3.25ex\@plus -1ex \@minus -.2ex}{1.5ex \@plus .2ex}{\normalfont\normalsize\bfseries}}
+\newcommand{\cvprfinalcopy}{}
+\newcommand{\cvprPaperID}[1]{}
+\renewenvironment{abstract}{\centerline{\large\bfseries Abstract}\vspace{0.5ex}\begin{quote}\small}{\par\end{quote}\vskip 1ex}
+\renewcommand\footnoterule{\kern-3pt\hrule width 0.4\columnwidth\kern 2.6pt}
+\long\def\@makecaption#1#2{\vskip\abovecaptionskip\sbox\@tempboxa{{\small #1: #2}}\ifdim \wd\@tempboxa > \hsize {\small #1: #2}\par\else\global \@minipagefalse\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}\fi\vskip\belowcaptionskip}
+\endinput
