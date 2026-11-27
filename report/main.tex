@@ -16,11 +16,20 @@
 \title{Human Activity Recognition Using Wearable Sensors}
 
 \author{
-Sourabh Singh (M25CPS009) \quad Ranvir Singh (P25CS0007)\\
+\begin{tabular}[t]{c}
+Sourabh Singh (M25CPS009)\\
 Indian Institute of Technology Jodhpur\\
-{\tt\small m25cps009@iitj.ac.in, p25cs0007@iitj.ac.in}\\[6pt]
+{\tt\small m25cps009@iitj.ac.in}
+\end{tabular}
+\and
+\begin{tabular}[t]{c}
+Ranvir Singh (P25CS0007)\\
+Indian Institute of Technology Jodhpur\\
+{\tt\small p25cs0007@iitj.ac.in}
+\end{tabular}
+\\[8pt]
 {\small Repository: \url{https://github.com/Sourabh16/Human-Activity-Recognition-Using-Wearable-Sensors}}\\
-{\small Final Commit: \texttt{f87cb5e} $\mid$ November 27, 2026}
+{\small Final Commit: \texttt{0739fa4} $\mid$ November 2026}
 }
 
 \maketitle
@@ -44,7 +53,7 @@ This work makes the following contributions:
     \item A complete, reproducible HAR pipeline achieving \textbf{94.92\%} test accuracy on the MHEALTH dataset with subject-independent evaluation.
     \item Comprehensive feature engineering: 13 time-domain and frequency-domain features per sensor channel, yielding 273 features per 5.12-second window.
     \item A sensor-location ablation study revealing that ankle sensor features introduce redundancy that \textit{degrades} generalization, with PCA-based evidence of inter-sensor multicollinearity.
-    \item All code, instructions, and reproducibility artifacts are publicly available.\footnote{\url{https://github.com/Sourabh16/Human-Activity-Recognition-Using-Wearable-Sensors}}
+    \item All code, instructions, and reproducibility artifacts are publicly available via the repository linked on page~1.
 \end{enumerate}
 
 % ═══════════════════════════════════════════════
@@ -341,7 +350,7 @@ Three factors explain why ankle removal helps:
 % ═══════════════════════════════════════════════
 \section{Reproducibility}
 
-All experiments are fully reproducible. The GitHub repository\footnote{\url{https://github.com/Sourabh16/Human-Activity-Recognition-Using-Wearable-Sensors}} contains the complete source code, saved data split configuration, environment file (\texttt{requirements.txt}), final training logs, figure generation scripts, and exact reproduction commands. Key reproducibility measures include:
+All experiments are fully reproducible. The GitHub repository (linked on page~1) contains the complete source code, saved data split configuration, environment file (\texttt{requirements.txt}), final training logs, figure generation scripts, and exact reproduction commands. Key reproducibility measures include:
 
 \begin{itemize}
     \item \textbf{Fixed random seed} (42) for SMOTE, SVM, and all stochastic operations.
@@ -370,12 +379,11 @@ Table~\ref{tab:comparison} places our results in context with prior work on the 
 \midrule
 CNN + LSTM           & Ord{\'o}{\~n}ez \textit{et al.}~\cite{ordonez2016deep} & 91.0\% \\
 SVM + 273 features   & \textbf{Ours}                                          & \textbf{94.9\%} \\
-CNN-LSTM + Attention & Khatun \textit{et al.}~\cite{khatun2022deep}           & 98.8\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Our SVM pipeline outperforms the CNN+LSTM baseline by nearly 4 percentage points while using a fraction of the computational resources (CPU-only training in $\sim$10 minutes vs.\ GPU training over hours). The attention-based model achieves higher accuracy, but at the cost of interpretability and hardware requirements. For resource-constrained deployments (wearables, edge devices, clinical settings where model transparency matters), our approach offers a compelling accuracy--efficiency trade-off.
+Our SVM pipeline outperforms the CNN+LSTM baseline by nearly 4 percentage points while using a fraction of the computational resources (CPU-only training in $\sim$10 minutes vs.\ GPU training over hours). Deep learning methods such as the CNN-LSTM with self-attention architecture~\cite{khatun2022deep} have achieved higher accuracy (98.8\%) on MHEALTH, but at the cost of interpretability and hardware requirements. For resource-constrained deployments (wearables, edge devices, clinical settings where model transparency matters), our approach offers a compelling accuracy--efficiency trade-off.
 
 \subsection{Impact of Feature Design}
 The success of our model hinges on the quality of the 273 engineered features. Time-domain features like mean and RMS capture postural information (gravity component, movement intensity), while frequency-domain features (FFT dominant frequency, PSD) capture rhythmic patterns crucial for distinguishing walking ($\sim$2~Hz) from jogging ($\sim$2.5~Hz) and running ($\sim$3~Hz). The zero-crossing rate provides a computationally cheap frequency proxy that is robust to signal amplitude variations.
